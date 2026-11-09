@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import CautionTape from "@/components/CautionTape";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -22,6 +23,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <CautionTape />
         <About />
         <Services />
         <WhyChooseUs />
@@ -29,6 +31,7 @@ export default function Home() {
         <Gallery />
         <ServiceArea />
         <CtaBanner />
+        <CautionTape />
         <Contact />
       </main>
       <Footer />

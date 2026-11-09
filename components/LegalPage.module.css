@@ -30,11 +30,13 @@
   margin: 0;
   max-width: 18ch;
   color: #f2efe9;
-  font-size: clamp(40px, 5.5vw, 72px);
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-size: clamp(52px, 6.6vw, 92px);
+  line-height: 0.92;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   text-wrap: balance;
+  font-family: var(--font-display);
+  text-transform: uppercase;
 }
 
 .intro {
@@ -70,10 +72,12 @@
 .prose h2 {
   margin: 48px 0 16px;
   color: #0e0d0b;
-  font-size: clamp(24px, 2.4vw, 30px);
-  line-height: 1.15;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: clamp(30px, 3vw, 38px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  text-transform: uppercase;
 }
 
 .prose h2:first-child {

@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: min(100vh, 800px);
   display: flex;
   align-items: flex-end;
   background: #0e0d0b;
@@ -23,7 +23,7 @@
   max-width: calc(1280px + 2 * var(--gutter));
   width: 100%;
   margin: 0 auto;
-  padding: 226px var(--gutter) clamp(48px, 8vw, 96px);
+  padding: 226px var(--gutter) calc(clamp(28px, 4vw, 48px) + var(--tape-space));
 }
 
 .eyebrow {
@@ -42,15 +42,17 @@
 .title {
   margin: 0;
   color: #f2efe9;
-  font-size: clamp(40px, 6.5vw, 88px);
-  line-height: 0.95;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  max-width: 14ch;
-  text-wrap: balance;
+  font-size: min(75px, calc((100vw - 2 * var(--gutter)) / 7));
+  line-height: 0.92;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  text-transform: uppercase;
 }
 
 .accent {
+  display: block;
   color: #f5c518;
 }
 
@@ -64,13 +66,18 @@
 .primary {
   background: #f5c518;
   color: #0e0d0b;
-  padding: 18px 30px;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 2px;
+  padding: var(--btn-pad);
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  border: 0;
 }
 
 .primary:hover {
@@ -81,10 +88,14 @@
 .secondary {
   border: 1px solid rgba(242, 239, 233, 0.45);
   color: #f2efe9;
-  padding: 18px 30px;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 2px;
+  padding: var(--btn-pad);
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .secondary:hover {
@@ -96,9 +107,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(24px, 5vw, 64px);
-  margin-top: clamp(32px, 3.5vw, 48px);
-  padding-top: 28px;
-  border-top: 1px solid rgba(242, 239, 233, 0.18);
+  margin-top: clamp(40px, 4.5vw, 64px);
 }
 
 .stat {
@@ -109,12 +118,15 @@
 
 .statValue {
   color: #f5c518;
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 .statLabel {
-  color: rgba(242, 239, 233, 0.75);
+  color: #fff;
   font-size: 14px;
 }

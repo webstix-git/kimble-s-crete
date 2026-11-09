@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section id="top" data-screen-label="Hero" className={styles.hero}>
       <Image
-        src="/images/hero-driveway.jpg"
+        src="/images/hero-commercial-slab-hd.jpg"
         alt=""
         fill
         priority

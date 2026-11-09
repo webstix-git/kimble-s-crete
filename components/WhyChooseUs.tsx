@@ -9,7 +9,7 @@ export default function WhyChooseUs() {
   return (
     <section id="why" data-screen-label="Why Choose Us" className={styles.section}>
       <Image
-        src="/images/why-choose-us-slab.jpg"
+        src="/images/why-choose-us-trucks-hd.jpg"
         alt=""
         fill
         sizes="100vw"

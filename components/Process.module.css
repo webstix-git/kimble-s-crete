@@ -55,9 +55,13 @@
 
 .title {
   margin: 8px 0 0;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 400;
   color: #0e0d0b;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
 }
 
 .desc {

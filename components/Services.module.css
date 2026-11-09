@@ -93,9 +93,12 @@
 .name {
   margin: 4px 0 0;
   color: #0e0d0b;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 .desc {

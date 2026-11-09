@@ -2,18 +2,13 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  border-bottom: 4px solid #f5c518;
 }
 
 .inner {
   max-width: calc(1280px + 2 * var(--gutter));
   margin: 0 auto;
-  padding: clamp(72px, 9vw, 128px) var(--gutter);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 32px;
+  padding: clamp(72px, 9vw, 128px) var(--gutter)
+    calc(clamp(32px, 4vw, 56px) + var(--tape-space));
 }
 
 .bg {
@@ -38,7 +33,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 620px;
 }
 
 .eyebrow {
@@ -53,13 +47,17 @@
 .title {
   margin: 0;
   color: #f2efe9;
-  font-size: clamp(30px, 3.6vw, 48px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: min(clamp(38px, 4.6vw, 62px), calc((100vw - 2 * var(--gutter)) / 11));
+  font-weight: 400;
+  line-height: 0.95;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  font-family: var(--font-display);
+  text-transform: uppercase;
 }
 
 .sub {
+  max-width: 620px;
   margin: 0;
   color: rgba(242, 239, 233, 0.82);
   font-size: 18px;
@@ -70,18 +68,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 22px;
 }
 
 .callButton {
   background: #f5c518;
   color: #0e0d0b;
-  padding: 16px 26px;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 2px;
+  padding: var(--btn-pad);
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  border: 0;
 }
 
 .callButton:hover {
@@ -93,10 +97,14 @@
   background: rgba(14, 13, 11, 0.35);
   border: 1px solid rgba(242, 239, 233, 0.6);
   color: #f2efe9;
-  padding: 16px 26px;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 2px;
+  padding: var(--btn-pad);
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .outlineButton:hover {

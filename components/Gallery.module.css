@@ -14,14 +14,18 @@
 
 .facebookLink {
   color: #f2efe9;
-  border: 1px solid rgba(242, 239, 233, 0.3);
-  padding: 16px 28px;
-  font-weight: 600;
-  font-size: 15px;
-  border-radius: 2px;
+  border: 1px solid rgba(242, 239, 233, 0.45);
+  padding: var(--btn-pad);
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .facebookLink:hover {
@@ -69,21 +73,25 @@
 }
 
 .moreButton {
-  background: transparent;
-  color: #f5c518;
-  border: 1px solid #f5c518;
-  padding: 16px 28px;
-  font-weight: 700;
-  font-size: 15px;
-  border-radius: 2px;
+  background: #f5c518;
+  color: #0e0d0b;
+  border: 0;
+  padding: var(--btn-pad);
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .moreButton:hover {
-  background: #f5c518;
+  background: #ffd94a;
   color: #0e0d0b;
 }
 
@@ -114,11 +122,13 @@
 .videoHeading {
   margin: 0;
   color: #f2efe9;
-  font-size: clamp(30px, 3.4vw, 44px);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: clamp(38px, 4.4vw, 56px);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   text-wrap: balance;
+  font-family: var(--font-display);
+  text-transform: uppercase;
 }
 
 .videoCopy {

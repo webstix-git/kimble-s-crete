@@ -22,15 +22,15 @@ export default function CtaBanner() {
             Call today or request a free estimate. We&apos;re open 7 days a week,
             7 am to 5 pm.
           </p>
-        </div>
-        <div className={styles.actions}>
-          <a href={site.phoneHref} className={styles.callButton}>
-            <Icon d={icons.phone} size={16} strokeWidth={2.2} />
-            {site.phone}
-          </a>
-          <a href="#contact" className={styles.outlineButton}>
-            Request a Free Estimate
-          </a>
+          <div className={styles.actions}>
+            <a href={site.phoneHref} className={styles.callButton}>
+              <Icon d={icons.phone} size={16} strokeWidth={2.2} />
+              {site.phone}
+            </a>
+            <a href="#contact" className={styles.outlineButton}>
+              Request a Free Estimate
+            </a>
+          </div>
         </div>
       </div>
     </section>

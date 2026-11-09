@@ -6,10 +6,13 @@
 
 .title {
   margin: 0 0 6px;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: #0e0d0b;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 .row {
@@ -111,18 +114,22 @@
 
 .submit {
   height: 58px;
-  background: #0e0d0b;
-  color: #f5c518;
+  background: #f5c518;
+  color: #0e0d0b;
   border: 0;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 2px;
+  font-weight: 400;
+  font-size: var(--btn-size);
+  border-radius: var(--btn-radius);
   cursor: pointer;
   margin-top: 6px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .submit:hover {
-  background: #2a2620;
+  background: #ffd94a;
 }
 
 .submit:disabled {
@@ -156,9 +163,13 @@
 
 .successTitle {
   margin: 0;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 36px;
+  font-weight: 400;
   color: #0e0d0b;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .successCopy {

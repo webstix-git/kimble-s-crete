@@ -1,0 +1,73 @@
+.tape {
+  --h: var(--tape-h);
+  --rise: var(--tape-rise);
+  position: relative;
+  z-index: 5;
+  height: 0;
+}
+
+.inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(-1 * (var(--h) + var(--rise)));
+  height: calc(2 * (var(--h) + var(--rise)));
+  overflow: hidden;
+  pointer-events: none;
+}
+
+
+.ribbon {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: var(--h);
+  margin-top: calc(var(--h) / -2 - (var(--rise) - var(--h)) / 2);
+  display: flex;
+  overflow: hidden;
+  background: #f5c518;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.back {
+  background: #e3b412;
+  transform: rotate(-1.5deg);
+  transform: rotate(calc(-1 * atan2(var(--rise), 100vw)));
+}
+
+.front {
+  transform: rotate(1.5deg);
+  transform: rotate(atan2(var(--rise), 100vw));
+}
+
+.back > :first-child {
+  margin-left: calc(var(--h) * -3);
+}
+
+.segment {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 100%;
+}
+
+.word {
+  padding: 0.12em 0.9em 0;
+  color: #0e0d0b;
+  font-family: var(--font-display);
+  font-size: calc(var(--h) * 0.66);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stripes {
+  width: calc(var(--h) * 3);
+  height: 100%;
+  background: repeating-linear-gradient(
+    -55deg,
+    #0e0d0b 0 calc(var(--h) * 0.32),
+    transparent calc(var(--h) * 0.32) calc(var(--h) * 0.64)
+  );
+}

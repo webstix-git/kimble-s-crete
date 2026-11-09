@@ -6,7 +6,7 @@
 
 .bg {
   object-fit: cover;
-  object-position: center 55%;
+  object-position: center 40%;
 }
 
 .overlay {
@@ -58,8 +58,12 @@
 .title {
   margin: 4px 0 0;
   color: #f2efe9;
-  font-size: 21px;
-  font-weight: 700;
+  font-size: 27px;
+  font-weight: 400;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
 }
 
 .desc {
