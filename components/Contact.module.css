@@ -1,0 +1,90 @@
+.section {
+  background: #0e0d0b;
+  padding: var(--section-pad);
+}
+
+.grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: clamp(48px, 6vw, 96px);
+}
+
+.lead {
+  margin: 24px 0 0;
+  color: rgba(242, 239, 233, 0.72);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.detail {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  color: #f2efe9;
+}
+
+.detailLink:hover {
+  color: #f5c518;
+}
+
+.detailIcon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5c518;
+}
+
+.detailText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shrink {
+  min-width: 0;
+}
+
+.detailLabel {
+  font-size: 13px;
+  color: rgba(242, 239, 233, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.phone {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.email {
+  font-size: 20px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.address {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.card {
+  background: #f2efe9;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: 2px;
+}

@@ -1,0 +1,142 @@
+.section {
+  background: #0e0d0b;
+  padding: var(--section-pad);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.facebookLink {
+  color: #f2efe9;
+  border: 1px solid rgba(242, 239, 233, 0.3);
+  padding: 14px 22px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.facebookLink:hover {
+  border-color: #f5c518;
+  color: #f5c518;
+}
+
+.masonry {
+  columns: 3 300px;
+  column-gap: 16px;
+}
+
+.tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #1a1814;
+  margin: 0 0 16px;
+  break-inside: avoid;
+  cursor: zoom-in;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.tileImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition:
+    transform 0.5s ease,
+    opacity 0.3s;
+}
+
+.tileImage:hover {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+.moreWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.moreButton {
+  background: transparent;
+  color: #f5c518;
+  border: 1px solid #f5c518;
+  padding: 16px 28px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.moreButton:hover {
+  background: #f5c518;
+  color: #0e0d0b;
+}
+
+.videoLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f5c518;
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: clamp(56px, 7vw, 88px) 0 28px;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.videoReel,
+.videoWide {
+  max-width: 100%;
+  background: #1a1814;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.videoReel {
+  flex: 0 1 267px;
+}
+
+.videoWide {
+  flex: 1 1 400px;
+}
+
+.reelFrame,
+.wideFrame {
+  border: none;
+  overflow: hidden;
+  display: block;
+  max-width: 100%;
+}
+
+.wideFrame {
+  width: 100%;
+  aspect-ratio: 560 / 314;
+  height: auto;
+}

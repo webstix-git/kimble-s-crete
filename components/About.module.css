@@ -1,0 +1,108 @@
+.section {
+  background: #f2efe9;
+  padding: var(--section-pad);
+}
+
+.grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: clamp(48px, 7vw, 96px);
+  align-items: center;
+}
+
+.media {
+  position: relative;
+  padding-bottom: clamp(40px, 6vw, 80px);
+  padding-right: clamp(40px, 6vw, 80px);
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+
+.insetImage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 8px solid #f2efe9;
+  border-radius: 2px;
+}
+
+.experience {
+  position: absolute;
+  left: -1px;
+  top: 32px;
+  background: #f5c518;
+  color: #0e0d0b;
+  padding: 18px 24px 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.experienceValue {
+  font-size: clamp(44px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.experienceLabel {
+  max-width: 116px;
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 520px) {
+  .experience {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .experienceLabel {
+    max-width: 96px;
+    font-size: 11px;
+  }
+}
+
+.copy {
+  margin: 28px 0 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #3a362f;
+  text-wrap: pretty;
+}
+
+.copyFollow {
+  margin-top: 20px;
+}
+
+.values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.value {
+  border: 1px solid #0e0d0b;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+}

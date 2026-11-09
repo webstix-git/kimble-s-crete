@@ -1,0 +1,27 @@
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.centered {
+  justify-content: center;
+}
+
+.gold {
+  color: #f5c518;
+}
+
+.rust {
+  color: #b8461f;
+}
+
+.ink {
+  color: #0e0d0b;
+}

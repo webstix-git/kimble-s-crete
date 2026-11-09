@@ -1,0 +1,129 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  background: #0e0d0b;
+  overflow: hidden;
+}
+
+.bg {
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 13, 11, 0.68);
+}
+
+.inner {
+  position: relative;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 190px var(--gutter) clamp(48px, 8vw, 96px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f5c518;
+  font-family: var(--font-narrow);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0;
+  color: #f2efe9;
+  font-size: clamp(40px, 6.5vw, 88px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.accent {
+  color: #f5c518;
+}
+
+.lead {
+  margin: 28px 0 0;
+  color: rgba(242, 239, 233, 0.86);
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.6;
+  max-width: 560px;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.primary {
+  background: #f5c518;
+  color: #0e0d0b;
+  padding: 18px 30px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.primary:hover {
+  background: #ffd94a;
+  color: #0e0d0b;
+}
+
+.secondary {
+  border: 1px solid rgba(242, 239, 233, 0.45);
+  color: #f2efe9;
+  padding: 18px 30px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.secondary:hover {
+  border-color: #f5c518;
+  color: #f5c518;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(24px, 5vw, 64px);
+  margin-top: clamp(48px, 7vw, 88px);
+  padding-top: 28px;
+  border-top: 1px solid rgba(242, 239, 233, 0.18);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statValue {
+  color: #f5c518;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  color: rgba(242, 239, 233, 0.75);
+  font-size: 14px;
+}

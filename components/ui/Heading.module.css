@@ -1,0 +1,16 @@
+.heading {
+  margin: 0;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.light {
+  color: #f2efe9;
+}
+
+.dark {
+  color: #0e0d0b;
+}
