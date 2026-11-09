@@ -17,13 +17,18 @@
   margin-bottom: clamp(48px, 6vw, 72px);
 }
 
-.heading {
-  max-width: 16ch;
+.intro .heading {
+  font-size: min(clamp(42px, 5.4vw, 72px), calc((100vw - 2 * var(--gutter)) / 9.6));
+}
+
+.line {
+  display: block;
+  white-space: nowrap;
 }
 
 .introCopy {
   margin: 0;
-  max-width: 420px;
+  max-width: 720px;
   color: rgba(242, 239, 233, 0.72);
   font-size: 18px;
   line-height: 1.65;

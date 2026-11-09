@@ -8,6 +8,7 @@ import Icon from "@/components/ui/Icon";
 import Lightbox from "@/components/Lightbox";
 import {
   gallery,
+  GALLERY_STEP,
   icons,
   INITIAL_GALLERY_COUNT,
   REEL_HEIGHT,
@@ -18,16 +19,19 @@ import {
 import styles from "./Gallery.module.css";
 
 export default function Gallery() {
-  const [showAll, setShowAll] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_GALLERY_COUNT);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const shown = showAll ? gallery : gallery.slice(0, INITIAL_GALLERY_COUNT);
+  const shown = gallery.slice(0, visibleCount);
+  const showingAll = visibleCount >= gallery.length;
 
-  const toggleShowAll = () => {
-    if (showAll) {
+  const toggleShowMore = () => {
+    if (showingAll) {
       document.getElementById("gallery")?.scrollIntoView({ behavior: "instant" });
+      setVisibleCount(INITIAL_GALLERY_COUNT);
+    } else {
+      setVisibleCount(visibleCount + GALLERY_STEP);
     }
-    setShowAll(!showAll);
   };
 
   return (
@@ -52,7 +56,7 @@ export default function Gallery() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  sizes="(min-width: 1280px) 416px, (min-width: 1000px) 33vw, (min-width: 664px) 50vw, 100vw"
+                  sizes="(min-width: 1280px) 416px, (min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw"
                   className={styles.tileImage}
                 />
               </button>
@@ -62,13 +66,13 @@ export default function Gallery() {
           <div className={styles.moreWrap}>
             <button
               type="button"
-              onClick={toggleShowAll}
-              aria-expanded={showAll}
+              onClick={toggleShowMore}
+              aria-expanded={showingAll}
               className={styles.moreButton}
             >
-              {showAll ? "Show Less Projects" : "Show More Projects"}
+              {showingAll ? "Show Less Projects" : "Show More Projects"}
               <Icon
-                d={showAll ? icons.chevronUp : icons.chevronDown}
+                d={showingAll ? icons.chevronUp : icons.chevronDown}
                 size={16}
                 strokeWidth={2.4}
               />

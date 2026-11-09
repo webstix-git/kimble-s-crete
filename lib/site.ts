@@ -59,7 +59,6 @@ export const navLinks = [
 export const heroStats = [
   { value: "9 Years", label: "Pouring concrete in the Rockford area" },
   { value: "100 Miles", label: "Of Northern Illinois & Southern Wisconsin" },
-  { value: "Free Estimates", label: "For homeowners and businesses" },
 ];
 
 export const values = [
@@ -161,7 +160,8 @@ export const steps = [
   },
 ];
 
-export const INITIAL_GALLERY_COUNT = 12;
+export const INITIAL_GALLERY_COUNT = 9;
+export const GALLERY_STEP = 6;
 
 export const REEL_WIDTH = 320;
 export const REEL_HEIGHT = 568;

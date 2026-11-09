@@ -57,6 +57,12 @@
   padding: 6px 0;
   color: #f2efe9;
   white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .navLink::after {
@@ -138,6 +144,12 @@
 .mobileLink {
   padding: 14px 0;
   border-bottom: 1px solid rgba(242, 239, 233, 0.08);
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .mobileActive,

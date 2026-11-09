@@ -1,8 +1,22 @@
 import Eyebrow from "@/components/ui/Eyebrow";
 import Heading from "@/components/ui/Heading";
 import Icon from "@/components/ui/Icon";
-import { steps } from "@/lib/site";
+import { site, steps } from "@/lib/site";
 import styles from "./Process.module.css";
+
+function withPhoneLink(text: string) {
+  const [before, ...rest] = text.split(site.phone);
+  if (!rest.length) return text;
+  return (
+    <>
+      {before}
+      <a href={site.phoneHref} className={styles.phoneLink}>
+        {site.phone}
+      </a>
+      {rest.join(site.phone)}
+    </>
+  );
+}
 
 export default function Process() {
   return (
@@ -24,7 +38,7 @@ export default function Process() {
                 <div className={styles.dash} />
               </div>
               <h3 className={styles.title}>{step.title}</h3>
-              <p className={styles.desc}>{step.desc}</p>
+              <p className={styles.desc}>{withPhoneLink(step.desc)}</p>
             </div>
           ))}
         </div>

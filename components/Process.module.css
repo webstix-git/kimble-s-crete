@@ -70,3 +70,18 @@
   line-height: 1.65;
   color: #4a453c;
 }
+
+.phoneLink {
+  color: #0e0d0b;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: #f5c518;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.phoneLink:hover {
+  color: #b8461f;
+}

@@ -13,7 +13,8 @@ export default function Services() {
           <div>
             <Eyebrow>Concrete Services</Eyebrow>
             <Heading className={styles.heading}>
-              Concrete driveways, patios and slabs, done properly.
+              <span className={styles.line}>Concrete driveways, patios</span>{" "}
+              <span className={styles.line}>and slabs, done properly.</span>
             </Heading>
           </div>
           <p className={styles.introCopy}>
