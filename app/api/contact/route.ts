@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { serviceOptions } from "@/lib/site";
+import { propertyTypes, serviceOptions } from "@/lib/site";
 
 type EstimateRequest = {
   name: string;
   phone: string;
   email: string;
+  propertyType: string;
   service: string;
   message: string;
 };
@@ -28,20 +29,24 @@ export async function POST(request: Request) {
     name: field(body, "name", 200),
     phone: field(body, "phone", 50),
     email: field(body, "email", 200),
+    propertyType: field(body, "propertyType", 20),
     service: field(body, "service", 100),
     message: field(body, "message", 5000),
   };
 
-  if (!data.name || !data.phone) {
+  if (!data.name || !data.phone || !data.email || !data.service || !data.propertyType) {
     return NextResponse.json(
-      { error: "Name and phone are required." },
+      { error: "Name, phone, email, property type and project type are required." },
       { status: 422 },
     );
   }
-  if (data.email && !EMAIL_PATTERN.test(data.email)) {
+  if (!EMAIL_PATTERN.test(data.email)) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 422 });
   }
-  if (data.service && !serviceOptions.includes(data.service)) {
+  if (!propertyTypes.includes(data.propertyType)) {
+    return NextResponse.json({ error: "Invalid property type." }, { status: 422 });
+  }
+  if (!serviceOptions.includes(data.service)) {
     data.service = "Other";
   }
 

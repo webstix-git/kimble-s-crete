@@ -94,8 +94,7 @@
 }
 
 .link:hover,
-.phone:hover,
-.backToTop:hover {
+.phone:hover {
   color: #f5c518;
 }
 
@@ -139,7 +138,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 24px 0 32px;
+  padding: 24px 72px 32px 0;
   border-top: 1px solid rgba(242, 239, 233, 0.08);
 }
 
@@ -149,17 +148,18 @@
   font-size: 13px;
 }
 
-.backToTop {
-  margin-left: auto;
-  padding: 10px 0;
-  background: none;
-  border: 0;
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.legalLink {
   color: rgba(242, 239, 233, 0.72);
-  font: inherit;
   font-size: 13px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+}
+
+.legalLink:hover {
+  color: #f5c518;
 }

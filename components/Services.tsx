@@ -2,7 +2,7 @@ import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Heading from "@/components/ui/Heading";
 import Icon from "@/components/ui/Icon";
-import { services } from "@/lib/site";
+import { icons, services } from "@/lib/site";
 import styles from "./Services.module.css";
 
 export default function Services() {
@@ -50,7 +50,8 @@ export default function Services() {
           Don&apos;t see your project here? We also pour shed and garage slabs,
           footings and steps, and repair damaged concrete.{" "}
           <a href="#contact" className={styles.footnoteLink}>
-            Ask us about your project →
+            Ask us about your project
+            <Icon d={icons.arrowRight} size={16} strokeWidth={2.4} />
           </a>
         </p>
       </div>

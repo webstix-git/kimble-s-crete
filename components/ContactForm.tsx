@@ -2,10 +2,18 @@
 
 import { useState, type FormEvent } from "react";
 import Icon from "@/components/ui/Icon";
-import { icons, serviceOptions, site } from "@/lib/site";
+import { icons, propertyTypes, serviceOptions, site } from "@/lib/site";
 import styles from "./ContactForm.module.css";
 
 type Status = "idle" | "submitting" | "sent" | "error";
+
+function RequiredMark() {
+  return (
+    <span aria-hidden="true" className={styles.required}>
+      *
+    </span>
+  );
+}
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -51,11 +59,15 @@ export default function ContactForm() {
       <h3 className={styles.title}>Request a free estimate</h3>
       <div className={styles.row}>
         <label className={styles.label}>
-          Name
+          <span>
+            Name:<RequiredMark />
+          </span>
           <input required name="name" autoComplete="name" className={styles.input} />
         </label>
         <label className={styles.label}>
-          Phone
+          <span>
+            Phone:<RequiredMark />
+          </span>
           <input
             required
             type="tel"
@@ -66,19 +78,47 @@ export default function ContactForm() {
         </label>
       </div>
       <label className={styles.label}>
-        Email
-        <input type="email" name="email" autoComplete="email" className={styles.input} />
+        <span>
+          Email:<RequiredMark />
+        </span>
+        <input
+          required
+          type="email"
+          name="email"
+          autoComplete="email"
+          className={styles.input}
+        />
       </label>
+      <fieldset className={styles.fieldset}>
+        <legend className={styles.label}>
+          <span>
+            Property type:<RequiredMark />
+          </span>
+        </legend>
+        <div className={styles.radios}>
+          {propertyTypes.map((type) => (
+            <label key={type} className={styles.radio}>
+              <input required type="radio" name="propertyType" value={type} />
+              {type}
+            </label>
+          ))}
+        </div>
+      </fieldset>
       <label className={styles.label}>
-        Type of project
-        <select name="service" className={styles.select}>
+        <span>
+          Type of project:<RequiredMark />
+        </span>
+        <select required name="service" defaultValue="" className={styles.select}>
+          <option value="" disabled>
+            Select a project type
+          </option>
           {serviceOptions.map((option) => (
             <option key={option}>{option}</option>
           ))}
         </select>
       </label>
       <label className={styles.label}>
-        Tell us about the project
+        Tell us about the project:
         <textarea name="message" rows={4} className={styles.textarea} />
       </label>
       <button

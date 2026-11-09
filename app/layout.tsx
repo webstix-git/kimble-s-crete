@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { site } from "@/lib/site";
+import { areaServed, site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: site.title,
   description: site.description,
-  alternates: { canonical: "/" },
   openGraph: {
     title: site.title,
     description: site.description,
@@ -34,7 +33,7 @@ const jsonLd = {
   email: site.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: site.street,
+    streetAddress: `${site.street} ${site.suite}`,
     addressLocality: "Rockford",
     addressRegion: "IL",
     postalCode: "61107",
@@ -57,18 +56,7 @@ const jsonLd = {
       closes: site.hours.closes,
     },
   ],
-  areaServed: [
-    "Rockford, IL",
-    "Loves Park, IL",
-    "Machesney Park, IL",
-    "Belvidere, IL",
-    "Winnebago County, IL",
-    "Boone County, IL",
-    "Northern Illinois",
-    "Beloit, WI",
-    "Janesville, WI",
-    "Southern Wisconsin",
-  ],
+  areaServed,
   knowsAbout: [
     "Concrete driveways",
     "Concrete patios",

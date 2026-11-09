@@ -1,9 +1,10 @@
 import Image from "next/image";
-import BackToTop from "@/components/BackToTop";
+import Link from "next/link";
 import Icon from "@/components/ui/Icon";
 import {
   footerQuickLinks,
   icons,
+  legalLinks,
   services,
   site,
 } from "@/lib/site";
@@ -54,18 +55,18 @@ export default function Footer() {
           <nav aria-label="Services" className={styles.navColumn}>
             <h3 className={styles.columnTitle}>Services</h3>
             {services.map((service) => (
-              <a key={service.name} href="#services" className={styles.link}>
+              <Link key={service.name} href="/#services" className={styles.link}>
                 {service.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
           <nav aria-label="Quick links" className={styles.navColumn}>
             <h3 className={styles.columnTitle}>Quick Links</h3>
             {footerQuickLinks.map((link) => (
-              <a key={link.href} href={link.href} className={styles.link}>
+              <Link key={link.href} href={link.href} className={styles.link}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -97,6 +98,8 @@ export default function Footer() {
                 <span>
                   {site.street}
                   <br />
+                  {site.suite}
+                  <br />
                   {site.cityLine}
                 </span>
               </a>
@@ -116,11 +119,15 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {year} Kimble&apos;s Crete. Locally owned concrete contractor in
-            Rockford, Illinois. Free estimates on residential and commercial
-            concrete.
+            Copyright © {year} Kimble&apos;s Crete. All rights reserved.
           </p>
-          <BackToTop className={styles.backToTop} />
+          <nav aria-label="Legal" className={styles.legal}>
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={styles.legalLink}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

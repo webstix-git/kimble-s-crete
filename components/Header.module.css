@@ -18,7 +18,7 @@
 }
 
 .bar {
-  max-width: 1280px;
+  max-width: calc(1280px + 2 * var(--gutter));
   margin: 0 auto;
   padding: 10px var(--gutter);
   display: flex;

@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Icon from "@/components/ui/Icon";
 import { icons } from "@/lib/site";
+import styles from "./BackToTop.module.css";
 
 const DURATION = 600;
+const SHOW_AFTER = 600;
 
 function scrollToTop() {
   const start = window.scrollY;
@@ -31,11 +34,26 @@ function scrollToTop() {
   }, DURATION + 100);
 }
 
-export default function BackToTop({ className }: { className?: string }) {
+export function FloatingBackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const update = () => setVisible(window.scrollY > SHOW_AFTER);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
   return (
-    <button type="button" onClick={scrollToTop} className={className}>
-      Back to top
-      <Icon d={icons.arrowUp} size={14} strokeWidth={2.4} />
+    <button
+      type="button"
+      onClick={scrollToTop}
+      aria-label="Back to top"
+      aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
+      className={`${styles.floating} ${visible ? styles.visible : ""}`}
+    >
+      <Icon d={icons.arrowUp} size={22} strokeWidth={2.6} />
     </button>
   );
 }

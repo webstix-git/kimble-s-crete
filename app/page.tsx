@@ -9,6 +9,12 @@ import ServiceArea from "@/components/ServiceArea";
 import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { FloatingBackToTop } from "@/components/BackToTop";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -26,6 +32,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingBackToTop />
     </>
   );
 }

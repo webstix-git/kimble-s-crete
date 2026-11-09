@@ -9,18 +9,13 @@
 }
 
 .intro {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
   margin-bottom: clamp(40px, 5vw, 64px);
 }
 
 .facebookLink {
   color: #f2efe9;
   border: 1px solid rgba(242, 239, 233, 0.3);
-  padding: 14px 22px;
+  padding: 16px 28px;
   font-weight: 600;
   font-size: 15px;
   border-radius: 2px;
@@ -34,28 +29,27 @@
   color: #f5c518;
 }
 
-.masonry {
-  columns: 3 300px;
-  column-gap: 16px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
 }
 
 .tile {
+  position: relative;
   display: block;
   width: 100%;
+  aspect-ratio: 4 / 3;
   padding: 0;
   border: 0;
   background: #1a1814;
-  margin: 0 0 16px;
-  break-inside: avoid;
   cursor: zoom-in;
   overflow: hidden;
   border-radius: 2px;
 }
 
 .tileImage {
-  width: 100%;
-  height: auto;
-  display: block;
+  object-fit: cover;
   transition:
     transform 0.5s ease,
     opacity 0.3s;
@@ -68,8 +62,10 @@
 
 .moreWrap {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 40px;
 }
 
 .moreButton {
@@ -101,42 +97,76 @@
   font-size: 14px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin: clamp(56px, 7vw, 88px) 0 28px;
+  margin-bottom: 20px;
+}
+
+.videoBlock {
+  margin-top: clamp(56px, 7vw, 88px);
+  padding-top: clamp(56px, 7vw, 88px);
+  border-top: 1px solid rgba(242, 239, 233, 0.12);
+}
+
+.videoIntro {
+  max-width: 640px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.videoHeading {
+  margin: 0;
+  color: #f2efe9;
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.videoCopy {
+  margin: 20px 0 0;
+  color: rgba(242, 239, 233, 0.72);
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 .videos {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
   gap: 24px;
-  align-items: flex-start;
 }
 
-.videoReel,
-.videoWide {
-  max-width: 100%;
-  background: #1a1814;
+.video {
+  aspect-ratio: 320 / 568;
+  background: #000;
   border-radius: 2px;
   overflow: hidden;
 }
 
-.videoReel {
-  flex: 0 1 267px;
-}
-
 .videoWide {
-  flex: 1 1 400px;
+  aspect-ratio: auto;
 }
 
-.reelFrame,
-.wideFrame {
+/* Facebook pads this player with bars (~5.6% of its height) top and bottom, with its
+   title strip over the top bar; the taller frame pushes all of that out of view. */
+.videoWide .videoFrame {
+  height: 120.2%;
+  transform: translateY(-11.2%);
+}
+
+.videoFrame {
   border: none;
   overflow: hidden;
   display: block;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.wideFrame {
-  width: 100%;
-  aspect-ratio: 560 / 314;
-  height: auto;
+@media (max-width: 600px) {
+  .videos {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .videoWide {
+    aspect-ratio: 16 / 9;
+  }
 }

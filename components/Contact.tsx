@@ -54,6 +54,8 @@ export default function Contact() {
                 <span className={styles.address}>
                   {site.street}
                   <br />
+                  {site.suite}
+                  <br />
                   {site.cityLine}
                 </span>
               </span>

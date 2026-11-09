@@ -57,6 +57,18 @@
   width: calc(100% + 120px);
   height: calc(100% + 120px);
   border: 0;
+  pointer-events: none;
+}
+
+.outside {
+  filter: grayscale(1);
+}
+
+/* The radius must match .radius (inset 18% leaves a circle 32% of the width in radius). */
+.inside {
+  position: absolute;
+  inset: 0;
+  clip-path: circle(32% at 50% 50%);
 }
 
 .radius {

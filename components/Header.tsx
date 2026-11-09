@@ -2,23 +2,29 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Icon from "@/components/ui/Icon";
 import { icons, navLinks, site } from "@/lib/site";
 import styles from "./Header.module.css";
 
 const DESKTOP_QUERY = "(min-width: 960px)";
 
+const sectionId = (href: string) => href.slice(href.indexOf("#") + 1);
+
 function getActiveHref() {
+  const sections = navLinks.map((link) => document.getElementById(sectionId(link.href)));
+  if (!sections.some(Boolean)) return null;
+
   const atBottom =
     window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
   if (atBottom) return navLinks[navLinks.length - 1].href;
 
   const line = window.innerHeight * 0.35;
   let active: string | null = null;
-  for (const link of navLinks) {
-    const section = document.querySelector(link.href);
+  navLinks.forEach((link, i) => {
+    const section = sections[i];
     if (section && section.getBoundingClientRect().top <= line) active = link.href;
-  }
+  });
   return active;
 }
 
@@ -59,7 +65,7 @@ export default function Header() {
       className={`${styles.header} ${solid ? styles.solid : ""} ${scrolled ? "" : styles.atTop}`}
     >
       <div className={styles.bar}>
-        <a href="#top" className={styles.logoLink}>
+        <Link href="/#top" className={styles.logoLink}>
           <Image
             src="/images/header-logo.png"
             alt="Kimble's Crete concrete contractor logo"
@@ -69,18 +75,18 @@ export default function Header() {
             priority
             className={styles.logo}
           />
-        </a>
+        </Link>
 
         <nav className={styles.desktopNav} aria-label="Primary">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               aria-current={activeHref === link.href ? "location" : undefined}
               className={`${styles.navLink} ${activeHref === link.href ? styles.active : ""}`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <a href={site.phoneHref} className={styles.callButton}>
             <Icon d={icons.phone} size={16} strokeWidth={2.2} />
@@ -103,7 +109,7 @@ export default function Header() {
       {menuOpen && (
         <nav id="mobile-menu" className={styles.mobileNav} aria-label="Mobile">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={closeMenu}
@@ -111,11 +117,11 @@ export default function Header() {
               className={`${styles.mobileLink} ${activeHref === link.href ? styles.mobileActive : ""}`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contact" onClick={closeMenu} className={styles.mobileCta}>
+          <Link href="/#contact" onClick={closeMenu} className={styles.mobileCta}>
             Get a Free Estimate
-          </a>
+          </Link>
         </nav>
       )}
     </header>

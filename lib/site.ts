@@ -8,7 +8,8 @@ export const site = {
   phoneHref: "tel:8156013663",
   email: "kimblescrete@gmail.com",
   emailHref: "mailto:kimblescrete@gmail.com",
-  street: "1643 North Alpine Rd Suite 104",
+  street: "1643 North Alpine Rd.",
+  suite: "Suite 104",
   cityLine: "Rockford, IL 61107",
   yearsInBusiness: 9,
   mapsUrl: "https://maps.app.goo.gl/6jMdLMXa16vkYHHS9",
@@ -29,6 +30,9 @@ export const icons = {
   arrowUpRight: "M7 17 17 7M9 7h8v8",
   arrowUp: "M12 19V5M6 11l6-6 6 6",
   chevronDown: "M6 9l6 6 6-6",
+  chevronUp: "M18 15l-6-6-6 6",
+  chevronLeft: "M15 18l-6-6 6-6",
+  chevronRight: "M9 18l6-6-6-6",
   close: "M6 6l12 12M18 6 6 18",
   menu: "M4 7h16M4 12h16M4 17h16",
   pin: "M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z",
@@ -43,13 +47,13 @@ export const icons = {
 };
 
 export const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#why", label: "Why Us" },
-  { href: "#process", label: "Process" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#area", label: "Service Area" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#why", label: "Why Us" },
+  { href: "/#process", label: "Process" },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#area", label: "Service Area" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export const heroStats = [
@@ -159,6 +163,23 @@ export const steps = [
 
 export const INITIAL_GALLERY_COUNT = 12;
 
+export const REEL_WIDTH = 320;
+export const REEL_HEIGHT = 568;
+
+/** The narrow reel takes 20% of the row; the wide one fills the other 80% at the same height. */
+export const videoReels = [
+  {
+    title: "Kimble's Crete concrete project video",
+    reel: "27184071924564996",
+    wide: false,
+  },
+  {
+    title: "Kimble's Crete concrete pour video",
+    reel: "1812532119725358",
+    wide: true,
+  },
+];
+
 export const gallery: { src: string; alt: string }[] = [
   ["red-driveway-three-car-garage", "Red colored concrete driveway at a three-car garage in Rockford, IL"],
   ["stamped-patio-pergola", "Stamped and colored concrete patio with a decorative border and pergola"],
@@ -196,5 +217,28 @@ export const serviceOptions = [
   "Concrete repair",
   "Other",
 ];
+
+export const propertyTypes = ["Residential", "Commercial"];
+
+export const areaServed = [
+  "Rockford, IL",
+  "Loves Park, IL",
+  "Machesney Park, IL",
+  "Belvidere, IL",
+  "Winnebago County, IL",
+  "Boone County, IL",
+  "Northern Illinois",
+  "Beloit, WI",
+  "Janesville, WI",
+  "Southern Wisconsin",
+];
+
+export const legalLinks = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/ai-policy", label: "AI Policy" },
+  { href: "/ai-readiness", label: "AI Readiness" },
+];
+
+export const policiesUpdated = "November 9, 2026";
 
 export const footerQuickLinks = navLinks;

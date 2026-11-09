@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section id="top" data-screen-label="Hero" className={styles.hero}>
       <Image
-        src="/images/hero.jpg"
+        src="/images/hero-driveway.jpg"
         alt=""
         fill
         priority
@@ -20,12 +20,6 @@ export default function Hero() {
         <h1 className={styles.title}>
           Rockford concrete, <span className={styles.accent}>poured to last.</span>
         </h1>
-        <p className={styles.lead}>
-          Kimble&apos;s Crete is a locally owned Rockford concrete contractor pouring
-          driveways, patios, sidewalks and foundations for homes and businesses
-          across Northern Illinois and Southern Wisconsin. We treat every job
-          like it&apos;s on our own street.
-        </p>
         <div className={styles.actions}>
           <a href="#contact" className={styles.primary}>
             Get Your Free Estimate
