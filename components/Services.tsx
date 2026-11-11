@@ -26,7 +26,11 @@ export default function Services() {
 
         <div className={styles.grid}>
           {services.map((service) => (
-            <article key={service.name} className={styles.card}>
+            <article
+              key={service.id}
+              id={service.id}
+              className={styles.card}
+            >
               <div className={styles.imageWrap}>
                 <Image
                   src={service.img}

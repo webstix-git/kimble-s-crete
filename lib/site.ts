@@ -71,6 +71,7 @@ export const values = [
 
 export const services = [
   {
+    id: "concrete-driveways",
     name: "Concrete Driveways",
     img: "/assets/red-driveway-three-car-garage.jpg",
     alt: "Red colored concrete driveway at a three-car garage in Rockford, IL",
@@ -78,6 +79,7 @@ export const services = [
     icon: "M8 3 4 21M16 3l4 18M12 5v2M12 11v2M12 17v2",
   },
   {
+    id: "concrete-patios",
     name: "Concrete Patios",
     img: "/assets/backyard-patio-grill-chairs.jpg",
     alt: "Finished backyard concrete patio with a grill and patio chairs behind a Rockford home",
@@ -85,6 +87,7 @@ export const services = [
     icon: "M3 20h18M5 20V10l7-5 7 5v10M9 20v-5h6v5",
   },
   {
+    id: "sidewalks-steps",
     name: "Sidewalks & Steps",
     img: "/assets/front-walkway-to-porch.jpg",
     alt: "Freshly poured concrete front walkway leading to a porch",
@@ -92,6 +95,7 @@ export const services = [
     icon: "M7 21 10 3h4l3 18M8.5 12h7M9.5 7h5M7.8 16.5h8.4",
   },
   {
+    id: "foundations-slabs",
     name: "Foundations & Slabs",
     img: "/assets/foundation-slab-in-forms.jpg",
     alt: "Large commercial concrete slab poured inside formwork",
@@ -99,6 +103,7 @@ export const services = [
     icon: "M3 21h18M5 21v-6h14v6M7 15V9h10v6M9 9V5h6v4",
   },
   {
+    id: "curbs-edging",
     name: "Curbs & Edging",
     img: "/assets/covered-porch-slab-tooled-borders.jpg",
     alt: "New concrete slab with straight formed edges beside a driveway",
@@ -106,6 +111,7 @@ export const services = [
     icon: "M3 17h18M3 17v3h18v-3M6 17v-5h12v5M3 12h3M18 12h3",
   },
   {
+    id: "decorative-concrete",
     name: "Decorative Concrete",
     img: "/assets/stamped-patio-pergola.jpg",
     alt: "Stamped and colored concrete patio with a decorative border and pergola",
