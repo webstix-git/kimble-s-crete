@@ -15,7 +15,7 @@
 .copy {
   margin: 24px 0 0;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: calc(1em + 10px);
   color: #2a2620;
   max-width: 520px;
 }

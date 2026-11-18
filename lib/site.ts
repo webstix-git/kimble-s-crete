@@ -71,54 +71,128 @@ export const values = [
 
 export const services = [
   {
-    id: "concrete-driveways",
+    id: "driveways",
     name: "Concrete Driveways",
-    img: "/assets/red-driveway-three-car-garage.jpg",
-    alt: "Red colored concrete driveway at a three-car garage in Rockford, IL",
     desc: "New driveways and full tear-out replacements in standard gray or colored concrete. Proper grading and base prep help it handle daily traffic, snowplows and Rockford's freeze-thaw cycles.",
     icon: "M8 3 4 21M16 3l4 18M12 5v2M12 11v2M12 17v2",
+    images: [
+      {
+        src: "/assets/red-driveway-three-car-garage.jpg",
+        alt: "Red colored concrete driveway at a three-car garage in Rockford, IL",
+      },
+      {
+        src: "/assets/new-concrete-driveway.jpg",
+        alt: "Wide new concrete driveway with clean control joints",
+      },
+      {
+        src: "/assets/driveway-apron-slab.jpg",
+        alt: "Freshly poured concrete driveway apron",
+      },
+    ],
   },
   {
-    id: "concrete-patios",
+    id: "patios",
     name: "Concrete Patios",
-    img: "/assets/backyard-patio-grill-chairs.jpg",
-    alt: "Finished backyard concrete patio with a grill and patio chairs behind a Rockford home",
     desc: "Backyard patios planned around how you'll use them, whether that's a grill and a few chairs or room for the whole family. Choose a broom, colored or stamped finish.",
     icon: "M3 20h18M5 20V10l7-5 7 5v10M9 20v-5h6v5",
+    images: [
+      {
+        src: "/assets/backyard-patio-grill-chairs.jpg",
+        alt: "Finished backyard concrete patio with a grill and patio chairs behind a Rockford home",
+      },
+      {
+        src: "/assets/backyard-broom-finish-patio.jpg",
+        alt: "New broom-finished concrete patio behind a Rockford home",
+      },
+      {
+        src: "/assets/patio-off-back-door.jpg",
+        alt: "New concrete patio extending from a home's back door",
+      },
+    ],
   },
   {
     id: "sidewalks-steps",
     name: "Sidewalks & Steps",
-    img: "/assets/front-walkway-to-porch.jpg",
-    alt: "Freshly poured concrete front walkway leading to a porch",
     desc: "Front walks, side paths and concrete steps that sit level, drain away from the house and have clean, evenly spaced control joints.",
     icon: "M7 21 10 3h4l3 18M8.5 12h7M9.5 7h5M7.8 16.5h8.4",
+    images: [
+      {
+        src: "/assets/front-walkway-to-porch.jpg",
+        alt: "Freshly poured concrete front walkway leading to a porch",
+      },
+      {
+        src: "/assets/steps-stone-retaining-wall.jpg",
+        alt: "Poured concrete steps built into a stone retaining wall",
+      },
+      {
+        src: "/assets/colored-walkway-front-entry.jpg",
+        alt: "Colored concrete walkway curving to a front entry",
+      },
+    ],
   },
   {
     id: "foundations-slabs",
     name: "Foundations & Slabs",
-    img: "/assets/foundation-slab-in-forms.jpg",
-    alt: "Large commercial concrete slab poured inside formwork",
     desc: "Footings, foundations and concrete slabs for garages, home additions, sheds and commercial buildings, formed square and poured to plan.",
     icon: "M3 21h18M5 21v-6h14v6M7 15V9h10v6M9 9V5h6v4",
+    images: [
+      {
+        src: "/assets/foundation-slab-in-forms.jpg",
+        alt: "Large commercial concrete slab poured inside formwork",
+      },
+      {
+        src: "/assets/garage-apron-slab.jpg",
+        alt: "New concrete slab in front of a detached garage",
+      },
+      {
+        src: "/assets/covered-patio-slab.jpg",
+        alt: "Freshly finished concrete slab on a covered back patio",
+      },
+    ],
   },
   {
     id: "curbs-edging",
     name: "Curbs & Edging",
-    img: "/assets/covered-porch-slab-tooled-borders.jpg",
-    alt: "New concrete slab with straight formed edges beside a driveway",
     desc: "Concrete curbs and edging for driveways, parking areas and landscape beds, with straight, crisp lines that hold their shape.",
     icon: "M3 17h18M3 17v3h18v-3M6 17v-5h12v5M3 12h3M18 12h3",
+    images: [
+      {
+        src: "/assets/covered-porch-slab-tooled-borders.jpg",
+        alt: "New concrete slab with straight formed edges beside a driveway",
+      },
+      {
+        src: "/assets/backyard-slab-curved-sidewalk.jpg",
+        alt: "Broom-finished backyard slab and curved sidewalk beside a retaining wall",
+      },
+      {
+        src: "/assets/curved-walkway-garden-beds.jpg",
+        alt: "Curved concrete walkway between landscaped garden beds",
+      },
+    ],
   },
   {
     id: "decorative-concrete",
     name: "Decorative Concrete",
-    img: "/assets/stamped-patio-pergola.jpg",
-    alt: "Stamped and colored concrete patio with a decorative border and pergola",
     desc: "Stamped concrete, color and tooled borders that give a patio, porch or walkway a finished, custom look. You pick the pattern and color, and we take care of the rest.",
     icon: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+    images: [
+      {
+        src: "/assets/stamped-patio-pergola.jpg",
+        alt: "Stamped and colored concrete patio with a decorative border and pergola",
+      },
+      {
+        src: "/assets/stamped-wood-plank-patio.jpg",
+        alt: "Stamped concrete patio with a wood-plank pattern behind a home",
+      },
+      {
+        src: "/assets/stamped-pool-patio.jpg",
+        alt: "Stamped concrete patio beside an above-ground pool deck",
+      },
+    ],
   },
-];
+] as const;
+
+export const serviceHref = (id: (typeof services)[number]["id"]) => `/#${id}`;
 
 export const reasons = [
   {

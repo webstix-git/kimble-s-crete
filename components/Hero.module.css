@@ -43,7 +43,7 @@
   margin: 0;
   color: #f2efe9;
   font-size: min(75px, calc((100vw - 2 * var(--gutter)) / 7));
-  line-height: 0.92;
+  line-height: calc(1em + 10px);
   font-weight: 400;
   letter-spacing: 0.01em;
   white-space: nowrap;

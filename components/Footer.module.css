@@ -34,7 +34,7 @@
   margin: 0;
   color: rgba(242, 239, 233, 0.72);
   font-size: 18px;
-  line-height: 1.65;
+  line-height: calc(1em + 10px);
   max-width: 300px;
 }
 
@@ -112,7 +112,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  line-height: 1.6;
+  line-height: calc(1em + 10px);
 }
 
 .contactIcon {
@@ -129,7 +129,7 @@
   font-style: normal;
   color: rgba(242, 239, 233, 0.72);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: calc(1em + 10px);
 }
 
 .bottom {

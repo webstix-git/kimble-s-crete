@@ -30,14 +30,16 @@ export default function WhyChooseUs() {
         <div className={styles.grid}>
           {reasons.map((reason) => (
             <div key={reason.title} className={styles.reason}>
-              <Icon
-                d={reason.icon}
-                size={30}
-                stroke="#F5C518"
-                strokeWidth={1.8}
-                round
-              />
-              <h3 className={styles.title}>{reason.title}</h3>
+              <div className={styles.reasonHead}>
+                <Icon
+                  d={reason.icon}
+                  size={30}
+                  stroke="#F5C518"
+                  strokeWidth={1.8}
+                  round
+                />
+                <h3 className={styles.title}>{reason.title}</h3>
+              </div>
               <p className={styles.desc}>{reason.desc}</p>
             </div>
           ))}

@@ -139,7 +139,7 @@
 .error {
   margin: 0;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: calc(1em + 10px);
   color: #b8461f;
 }
 
@@ -175,7 +175,7 @@
 .successCopy {
   margin: 0;
   font-size: 18px;
-  line-height: 1.65;
+  line-height: calc(1em + 10px);
   color: #3a362f;
 }
 

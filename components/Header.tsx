@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/ui/Icon";
-import { icons, navLinks, services, site } from "@/lib/site";
+import { icons, navLinks, serviceHref, services, site } from "@/lib/site";
 import styles from "./Header.module.css";
 
 const DESKTOP_QUERY = "(min-width: 960px)";
@@ -35,7 +35,10 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeHref, setActiveHref] = useState<string | null>(null);
-  const servicesRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number>(0);
+  const desktopMenuId = useId();
+  const mobileMenuId = useId();
 
   useEffect(() => {
     let frame = 0;
@@ -67,21 +70,29 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    return () => window.clearTimeout(closeTimer.current);
+  }, []);
+
+  useEffect(() => {
     if (!servicesOpen) return;
 
-    const onPointerDown = (e: PointerEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+    const onPointerDown = (event: MouseEvent) => {
+      if (!dropdownRef.current?.contains(event.target as Node)) {
+        window.clearTimeout(closeTimer.current);
         setServicesOpen(false);
       }
     };
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setServicesOpen(false);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        window.clearTimeout(closeTimer.current);
+        setServicesOpen(false);
+      }
     };
 
-    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("mousedown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
     return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [servicesOpen]);
@@ -91,6 +102,7 @@ export default function Header() {
     setMenuOpen(false);
     setMobileServicesOpen(false);
   };
+  const servicesActive = activeHref === SERVICES_HREF;
 
   return (
     <header
@@ -114,47 +126,62 @@ export default function Header() {
             link.href === SERVICES_HREF ? (
               <div
                 key={link.href}
-                ref={servicesRef}
                 className={styles.dropdown}
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
+                ref={dropdownRef}
+                onMouseEnter={() => {
+                  window.clearTimeout(closeTimer.current);
+                  setServicesOpen(true);
+                }}
+                onMouseLeave={() => {
+                  window.clearTimeout(closeTimer.current);
+                  closeTimer.current = window.setTimeout(() => {
+                    setServicesOpen(false);
+                  }, 150);
+                }}
               >
-                <Link
-                  href={link.href}
-                  aria-current={activeHref === link.href ? "location" : undefined}
+                <button
+                  type="button"
+                  className={`${styles.navLink} ${styles.dropdownTrigger} ${
+                    servicesActive || servicesOpen ? styles.active : ""
+                  }`}
                   aria-expanded={servicesOpen}
                   aria-haspopup="menu"
-                  className={`${styles.navLink} ${styles.dropdownTrigger} ${
-                    activeHref === link.href ? styles.active : ""
-                  }`}
-                  onClick={() => setServicesOpen(false)}
-                  onFocus={() => setServicesOpen(true)}
+                  aria-controls={desktopMenuId}
+                  onClick={() => setServicesOpen((open) => !open)}
                 >
                   {link.label}
                   <Icon
                     d={icons.chevronDown}
-                    size={14}
-                    strokeWidth={2.4}
+                    size={16}
+                    strokeWidth={2.2}
                     className={`${styles.chevron} ${servicesOpen ? styles.chevronOpen : ""}`}
                   />
-                </Link>
-                <div
-                  className={`${styles.dropdownMenu} ${servicesOpen ? styles.dropdownMenuOpen : ""}`}
-                  role="menu"
-                  aria-label="Services"
-                >
-                  {services.map((service) => (
-                    <Link
-                      key={service.id}
-                      href={`/#${service.id}`}
-                      role="menuitem"
-                      className={styles.dropdownLink}
-                      onClick={() => setServicesOpen(false)}
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                </div>
+                </button>
+                {servicesOpen && (
+                  <div id={desktopMenuId} role="menu" className={styles.dropdownMenu}>
+                    <div className={styles.dropdownPanel}>
+                      <Link
+                        href={SERVICES_HREF}
+                        role="menuitem"
+                        className={styles.dropdownLink}
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        All Services
+                      </Link>
+                      {services.map((service) => (
+                        <Link
+                          key={service.id}
+                          href={serviceHref(service.id)}
+                          role="menuitem"
+                          className={styles.dropdownLink}
+                          onClick={() => setServicesOpen(false)}
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <Link
@@ -189,48 +216,39 @@ export default function Header() {
         <nav id="mobile-menu" className={styles.mobileNav} aria-label="Mobile">
           {navLinks.map((link) =>
             link.href === SERVICES_HREF ? (
-              <div key={link.href} className={styles.mobileDropdown}>
-                <div className={styles.mobileDropdownRow}>
-                  <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    aria-current={activeHref === link.href ? "location" : undefined}
-                    className={`${styles.mobileLink} ${styles.mobileDropdownLink} ${
-                      activeHref === link.href ? styles.mobileActive : ""
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                  <button
-                    type="button"
-                    className={styles.mobileDropdownToggle}
-                    aria-expanded={mobileServicesOpen}
-                    aria-controls="mobile-services-menu"
-                    aria-label="Service list"
-                    onClick={() => setMobileServicesOpen((open) => !open)}
-                  >
-                    <Icon
-                      d={icons.chevronDown}
-                      size={18}
-                      strokeWidth={2.2}
-                      className={`${styles.chevron} ${mobileServicesOpen ? styles.chevronOpen : ""}`}
-                    />
-                  </button>
-                </div>
+              <div key={link.href} className={styles.mobileGroup}>
+                <button
+                  type="button"
+                  className={`${styles.mobileLink} ${styles.mobileTrigger} ${
+                    servicesActive || mobileServicesOpen ? styles.mobileActive : ""
+                  }`}
+                  aria-expanded={mobileServicesOpen}
+                  aria-controls={mobileMenuId}
+                  onClick={() => setMobileServicesOpen((open) => !open)}
+                >
+                  {link.label}
+                  <Icon
+                    d={icons.chevronDown}
+                    size={18}
+                    strokeWidth={2.2}
+                    className={`${styles.chevron} ${mobileServicesOpen ? styles.chevronOpen : ""}`}
+                  />
+                </button>
                 {mobileServicesOpen && (
-                  <div
-                    id="mobile-services-menu"
-                    className={styles.mobileDropdownMenu}
-                    role="menu"
-                    aria-label="Services"
-                  >
+                  <div id={mobileMenuId} className={styles.mobileSubnav}>
+                    <Link
+                      href={SERVICES_HREF}
+                      onClick={closeMenu}
+                      className={styles.mobileSubLink}
+                    >
+                      All Services
+                    </Link>
                     {services.map((service) => (
                       <Link
                         key={service.id}
-                        href={`/#${service.id}`}
-                        role="menuitem"
+                        href={serviceHref(service.id)}
                         onClick={closeMenu}
-                        className={styles.mobileDropdownItem}
+                        className={styles.mobileSubLink}
                       >
                         {service.name}
                       </Link>

@@ -5,6 +5,7 @@ import {
   footerQuickLinks,
   icons,
   legalLinks,
+  serviceHref,
   services,
   site,
 } from "@/lib/site";
@@ -55,7 +56,11 @@ export default function Footer() {
           <nav aria-label="Services" className={styles.navColumn}>
             <h3 className={styles.columnTitle}>Services</h3>
             {services.map((service) => (
-              <Link key={service.id} href={`/#${service.id}`} className={styles.link}>
+              <Link
+                key={service.id}
+                href={serviceHref(service.id)}
+                className={styles.link}
+              >
                 {service.name}
               </Link>
             ))}

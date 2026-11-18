@@ -49,7 +49,7 @@
   color: #f2efe9;
   font-size: min(clamp(38px, 4.6vw, 62px), calc((100vw - 2 * var(--gutter)) / 11));
   font-weight: 400;
-  line-height: 0.95;
+  line-height: calc(1em + 10px);
   white-space: nowrap;
   letter-spacing: 0.01em;
   font-family: var(--font-display);
@@ -61,7 +61,7 @@
   margin: 0;
   color: rgba(242, 239, 233, 0.82);
   font-size: 18px;
-  line-height: 1.55;
+  line-height: calc(1em + 10px);
 }
 
 .actions {
