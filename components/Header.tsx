@@ -157,31 +157,23 @@ export default function Header() {
                     className={`${styles.chevron} ${servicesOpen ? styles.chevronOpen : ""}`}
                   />
                 </button>
-                {servicesOpen && (
-                  <div id={desktopMenuId} role="menu" className={styles.dropdownMenu}>
-                    <div className={styles.dropdownPanel}>
-                      <Link
-                        href={SERVICES_HREF}
-                        role="menuitem"
-                        className={styles.dropdownLink}
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        All Services
-                      </Link>
-                      {services.map((service) => (
-                        <Link
-                          key={service.id}
-                          href={serviceHref(service.id)}
-                          role="menuitem"
-                          className={styles.dropdownLink}
-                          onClick={() => setServicesOpen(false)}
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <div
+                  id={desktopMenuId}
+                  role="menu"
+                  className={`${styles.dropdownMenu} ${servicesOpen ? styles.dropdownMenuOpen : ""}`}
+                >
+                  {services.map((service) => (
+                    <Link
+                      key={service.id}
+                      href={serviceHref(service.id)}
+                      role="menuitem"
+                      className={styles.dropdownLink}
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             ) : (
               <Link
@@ -236,13 +228,6 @@ export default function Header() {
                 </button>
                 {mobileServicesOpen && (
                   <div id={mobileMenuId} className={styles.mobileSubnav}>
-                    <Link
-                      href={SERVICES_HREF}
-                      onClick={closeMenu}
-                      className={styles.mobileSubLink}
-                    >
-                      All Services
-                    </Link>
                     {services.map((service) => (
                       <Link
                         key={service.id}
